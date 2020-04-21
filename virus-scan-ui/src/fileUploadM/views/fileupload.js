@@ -33,11 +33,11 @@ class FileUpload extends Component{
         for(var x = 0; x<this.state.selectedFile.length; x++) {
             data.append('files', this.state.selectedFile[x])
         }
-     
+
     //    const url = "http://localhost:8080/api/v1/scan/asset";
-       const url = "https://clamav-dev-va6.stage.cloud.adobe.io/api/v1/scan/assets";
+       const url = "http://clamavdemo.openshift.svc/api/v1/scan/assets";
        axios.post(url, data)
-       .then(response => 
+       .then(response =>
             {
                 if(typeof response.data.metaData != 'undefined') {
                     let os = response.data.metaData.OS != undefined ? response.data.metaData.OS : undefined;
@@ -58,7 +58,7 @@ class FileUpload extends Component{
             <div style = {{ "textAlign": "center"}}>
                 <section className="upload">
                     <Input type="file" className="" multiple onChange={this.onChangeHandler}/>
-                    <Button type="button" color="primary" className="" onClick={this.onClickHandler}>Upload</Button> 
+                    <Button type="button" color="primary" className="" onClick={this.onClickHandler}>Upload</Button>
                 </section>
                 <SimpleCard os={os} version={version} clamav={clamav} label="About Environment"/>
                 <hr />

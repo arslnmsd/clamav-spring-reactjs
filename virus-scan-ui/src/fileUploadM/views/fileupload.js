@@ -35,7 +35,7 @@ class FileUpload extends Component{
         }
 
     //    const url = "http://localhost:8080/api/v1/scan/asset";
-       const url = "http://clamavdemo.openshift.svc/api/v1/scan/assets";
+       const url = "http://clamavdemo.openshift.svc/api/v1/scan/upload";
        axios.post(url, data)
        .then(response =>
             {
